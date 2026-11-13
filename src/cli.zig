@@ -327,7 +327,7 @@ fn writeMetadata(allocator: std.mem.Allocator, io: std.Io, model_dir: []const u8
 
 /// Prints the installed models and their integrity status.
 pub fn list(io: std.Io) !void {
-    const dir: std.Io.Dir = try std.Io.Dir.cwd().openDir(io, "models", .{ .iterate = true });
+    const dir: std.Io.Dir = std.Io.Dir.cwd().openDir(io, "models", .{ .iterate = true }) catch return;
     defer dir.close(io);
 
     var iter: std.Io.Dir.Iterator = dir.iterate();

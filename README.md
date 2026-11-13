@@ -1,6 +1,6 @@
 # VeMT
 
-[![CI](https://img.shields.io/github/actions/workflow/status/AceHanded/VeMT/ci.yml?style=for-the-badge)](https://github.com/AceHanded/VeMT/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/AceHanded/VeMT/build-release.yml?style=for-the-badge)](https://github.com/AceHanded/VeMT/actions/workflows/build-release.yml)
 [![License](https://img.shields.io/github/license/AceHanded/VeMT?style=for-the-badge)](https://github.com/AceHanded/VeMT/blob/main/LICENSE)
 [![ZigVersion](https://img.shields.io/badge/zig-0.17.1-yellow?style=for-the-badge&logo=zig)](https://ziglang.org/)
 [![GitHubStars](https://img.shields.io/github/stars/AceHanded/VeMT?style=for-the-badge&logo=github&labelColor=black)](https://github.com/AceHanded/VeMT)
@@ -26,7 +26,7 @@ If you are using Windows, you can download the precompiled binary from the [Rele
 #### Instructions
 
 > [!NOTE]
-> The following instruction describe the build process on Windows. On other systems, you will likely have to modify the build components and commands.
+> The following instructions describe the build process on Windows. On other systems, you will likely have to modify the build components and commands.
 
 First, clone the repository:
 
