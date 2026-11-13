@@ -1,0 +1,32 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Setup Zig
+        uses: mlugg/setup-zig@v2
+        with:
+          version: 0.17.1
+      - name: Build Windows
+        run: zig build -Dtarget=x86_64-windows-gnu -Doptimize=ReleaseFast
+      - name: Package Build
+        shell: pwsh
+        run: |
+          Copy-Item lib/licenses zig-out/bin/licenses -Recurse -Force
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Compress-Archive -Path zig-out/bin/* -DestinationPath "dist/VeMT-${{ github.ref_name }}-x86_64-windows-gnu.zip" -Force
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: dist/*
+          generate_release_notes: true

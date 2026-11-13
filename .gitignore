@@ -1,0 +1,6 @@
+.venv/
+.vscode/
+.zig-cache/
+**/build/
+zig-out/
+models/
